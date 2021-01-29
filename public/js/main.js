@@ -53,9 +53,36 @@ btn5.addEventListener("click", () =>{
     // const img = document.getElementsByClassName("img-responsive"); 
     const img = btn5.previousElementSibling; 
     const par = img.previousElementSibling; 
-
-    //let regex = /([./])\w+/;
-    let chemin = par.innerHTML.match(regex); 
-    console.log(chemin);
+    let chemin = par.innerText.split(":"); 
+    img.setAttribute('src',chemin[1]);
 });
+
+// 6 
+
+const divBoxB = document.querySelectorAll("div.box-body"); 
+
+const imgs = divBoxB[5].querySelectorAll("img"); 
+
+let templink; 
+
+imgs[0].addEventListener("click", () =>{
+    templink = imgs[0].getAttribute("src");
+})
+
+imgs[1].addEventListener("click", () =>{
+    if(templink){
+        imgs[1].setAttribute("src", templink);   
+    }
+})
+
+//7 
+
+const txt = divBoxB[6].querySelectorAll('p'); 
+const btn = divBoxB[6].querySelector("button"); 
+
+btn.addEventListener("click", () =>{
+    txt[1].innerText = [txt[0].innerText , txt[0].innerText  = txt[1].innerText ][0]; 
+})
+
+
 
